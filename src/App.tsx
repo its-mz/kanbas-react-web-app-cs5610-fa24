@@ -8,9 +8,9 @@ function App() {
   return (
     <div>
       <Labs />
-      <Lab1 />
+      {/* <Lab1 />
       <h2>Lab 2</h2>
-      <h2>Lab 3</h2>
+      <h2>Lab 3</h2> */}
     </div>
   );
 }
