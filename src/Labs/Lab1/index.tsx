@@ -56,31 +56,59 @@ export default function Lab1() {
 
                 <div id="wd-tables">
                     <h4>Table Tag</h4>
-                    <table border={1} width="100%">	{/* table, border, width */}
-                        <thead>					{/* table headings */}
-                            <tr>						{/* table row */}
-                                <th>Quiz</th>				{/* table heading*/}
+                    <table border={1} width="100%">
+                        <thead>
+                            <tr>
+                                <th>Quiz</th>
                                 <th>Topic</th>
                                 <th>Date</th>
                                 <th>Grade</th>
                             </tr>
                         </thead>
-                        <tbody>					{/* table body */}
-                            <tr>						{/* table row */}
-                                <td>Q1</td>				{/* table data / cell */}
+                        <tbody>
+                            <tr>
+                                <td>Q1</td>
                                 <td>HTML</td>
                                 <td>2/3/21</td>
                                 <td>85</td>
                             </tr>
-                        </tbody>
-                        <tfoot>					{/* table row */}
                             <tr>
-                                <td colSpan={3}>Average</td>	{/* column span */}
+                                <td>Q2</td>
+                                <td>CSS</td>
+                                <td>2/10/21</td>
+                                <td>90</td>
+                            </tr>
+                            <tr>
+                                <td>Q3</td>
+                                <td>JavaScript</td>
+                                <td>2/17/21</td>
+                                <td>95</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colSpan={3}>Average</td>
                                 <td>90</td>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
+
+                <div id="wd-images">
+                    <h4>Image tag</h4>
+                    Loading an image from the internet:
+                    <br />
+                    <img id="wd-starship"
+                        width="400px"
+                        src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
+                    />
+                    <br />
+                    Loading a local image:
+                    <br />
+                    <img id="wd-teslabot" src="/Users/mingzheou/Documents/NEU/CS 5610/webdev/kanbas-react-web-app-cs5610-fa24/public/teslabot.jpg" height="200px" />
+                </div>
+
+
 
             </div>
         </div>
