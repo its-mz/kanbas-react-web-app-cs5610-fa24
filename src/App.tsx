@@ -3,17 +3,20 @@ import React from 'react';
 import './App.css';
 import Labs from './Labs';
 import Kanbas from './Kanbas';
-import { HashRouter } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <HashRouter>
-        <Kanbas />
-        <Labs />
-      </HashRouter>
-      
-    </div>
+    <HashRouter>
+      <div>
+        <Routes>
+          <Route path="/" element={<Navigate to="Kanbas" />} />
+          <Route path="/Labs" element={<Labs />} />
+          <Route path="/Kanbas" element={<Kanbas />} />
+          {/* <Labs /> */}
+        </Routes>
+      </div>
+    </HashRouter>
   );
 }
 
