@@ -12,7 +12,8 @@ export default function Dashboard() {
                             to="/Kanbas/Courses/1234/Home"> CS1234 React JS </Link>
                         <p className="wd-dashboard-course-title">
                             Full Stack software developer </p>
-                        <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+                        <Link to="/Kanbas/Courses/1234/Home">  </Link>
+                        <button>Go</button>
                     </div>
                 </div>
 
@@ -23,7 +24,8 @@ export default function Dashboard() {
                             to="/Kanbas/Courses/1234/Home"> CS1234 React JS </Link>
                         <p className="wd-dashboard-course-title">
                             Full Stack software developer </p>
-                        <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+                        <Link to="/Kanbas/Courses/1234/Home">  </Link>
+                        <button>Go</button>
                     </div>
                 </div>
 
@@ -34,10 +36,11 @@ export default function Dashboard() {
                             to="/Kanbas/Courses/1234/Home"> CS1234 React JS </Link>
                         <p className="wd-dashboard-course-title">
                             Full Stack software developer </p>
-                        <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+                        <Link to="/Kanbas/Courses/1234/Home">  </Link>
+                        <button>Go</button>
                     </div>
                 </div>
-                
+
                 <div className="wd-dashboard-course"> ... </div>
                 <div className="wd-dashboard-course"> ... </div>
             </div>
