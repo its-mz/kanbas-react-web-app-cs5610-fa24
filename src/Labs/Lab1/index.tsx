@@ -39,7 +39,6 @@ export default function Lab1() {
                 </ol>
             </div>
             <div id="wd-my-favorite-revipe">
-                <ol id="wd-my-favorite-revipe">
                     <h5>Unordered List Tag</h5>
                     My favorite books (in no particular order)
                     <ul id="wd-my-books">
@@ -55,7 +54,6 @@ export default function Lab1() {
                         <li>Bible</li>
                         <li>Sherlock Holmes</li>
                     </ul>
-                </ol>
             </div>
 
             <div id="wd-tables">
