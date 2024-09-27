@@ -66,27 +66,16 @@ export default function Lab2() {
         </div>
       </div>
       <ForegroundColors />
-
       <BackgroundColors />
-
       <Borders />
-
       <Padding />
-
       <Corners />
-
       <Dimensions />
-
       <Positions />
-
       <Zindex />
-
       <Float />
-
       <GridLayout />
-
       <Flex />
-
       <ReactIconsSampler />
 
     </div>
