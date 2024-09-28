@@ -15,6 +15,8 @@ import BootstrapGrids from "./BootstrapGrids";
 import ScreenSizeLabel from "./ScreenSizeLabel";
 import BootstrapTables from "./BootstrapTables";
 import BootstrapLists from "./BootstrapLists";
+import BootstrapForms from "./BootstrapForms";
+import BootstrapNavigation from "./BootstrapNavigation";
 export default function Lab2() {
   return (
     <div className="container">
@@ -85,6 +87,8 @@ export default function Lab2() {
       <ScreenSizeLabel />
       <BootstrapTables />
       <BootstrapLists />
+      <BootstrapForms />
+      <BootstrapNavigation />
 
     </div>
   );
