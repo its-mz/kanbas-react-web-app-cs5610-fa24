@@ -46,9 +46,9 @@ export default function Assignments() {
                                             <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 6 at 11:59pm <b>Due </b>May 13 at 11:59pm | 100 pts
                                         </div>
                                     </div>
-                                    <div className="float-end">
-                                        <span className="me-1 position-relative"><FaCheckCircle style={{ top: "2px" }}
-                                            className="text-success me-1 position-absolute fs-5" />
+                                    <div className="d-flex align-items-center float-end">
+                                        <span className="d-flex align-items-center"><FaCheckCircle
+                                            className="text-success fs-4" />
                                             <FaCircle className="text-white me-1 fs-6" />
                                             <IoEllipsisVertical className="fs-4" /></span>
                                     </div>
@@ -68,9 +68,9 @@ export default function Assignments() {
                                             <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 13 at 11:59pm <b>Due </b>May 20 at 11:59pm | 100 pts
                                         </div>
                                     </div>
-                                    <div className="float-end">
-                                        <span className="me-1 position-relative"><FaCheckCircle style={{ top: "2px" }}
-                                            className="text-success me-1 position-absolute fs-5" />
+                                    <div className="d-flex align-items-center float-end">
+                                        <span className="d-flex align-items-center"><FaCheckCircle
+                                            className="text-success fs-4" />
                                             <FaCircle className="text-white me-1 fs-6" />
                                             <IoEllipsisVertical className="fs-4" /></span>
                                     </div>
@@ -89,9 +89,9 @@ export default function Assignments() {
                                             <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 20 at 11:59pm <b>Due </b>May 27 at 11:59pm | 100 pts
                                         </div>
                                     </div>
-                                    <div className="float-end">
-                                        <span className="me-1 position-relative"><FaCheckCircle style={{ top: "2px" }}
-                                            className="text-success me-1 position-absolute fs-5" />
+                                    <div className="d-flex align-items-center float-end">
+                                        <span className="d-flex align-items-center"><FaCheckCircle
+                                            className="text-success fs-4" />
                                             <FaCircle className="text-white me-1 fs-6" />
                                             <IoEllipsisVertical className="fs-4" /></span>
                                     </div>
