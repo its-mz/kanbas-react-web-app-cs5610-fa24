@@ -37,3 +37,27 @@ body * {
 .wd-lesson {
     border-left: 3px solid green !important;
 }
+
+.btn-signout {
+    --bs-btn-color: #ffffff !important;
+    --bs-btn-bg: #f42626 !important;
+    --bs-btn-border-color: #c7cdd1 !important;
+    --bs-btn-hover-color: #ffffff !important;
+}
+
+.wd-dashboard-course {
+    width: 270px;
+    margin-bottom: 40px;
+}
+
+#wd-dashboard-courses {
+    margin-left: 40px;
+}
+
+.green-icon {
+    color: green;
+}
+
+.no-underline {
+    text-decoration: none;
+}

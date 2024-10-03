@@ -39,7 +39,7 @@ export default function KanbasNavigation() {
                    bg-black text-center border-0">
                 <IoMailOpenOutline className="fs-1 text-danger" /><br />
                 Inbox </Link><br />
-            <Link to="/Kanbas/Dashboard" id="wd-labs-link"
+            <Link to="/Labs/TOC" id="wd-labs-link"
                 className="list-group-item text-white
                    bg-black text-center border-0">
                 <GiGearHammer className="fs-1 text-danger" /><br />
