@@ -28,13 +28,14 @@ export default function KanbasNavigation() {
                    bg-black text-center border-0">
                 <LiaBookSolid className="fs-1 text-danger" /><br />
                 Courses </Link><br />
-            {/* complete styling the rest of the links */}
-            <Link to="/Kanbas/Dashboard" id="wd-calendar-link"
+
+            <Link to="/Kanbas/Calendar" id="wd-calendar-link"
                 className="list-group-item text-white
                    bg-black text-center border-0">
                 <IoIosCalendar className="fs-1 text-danger" /><br />
-                Canlendar </Link><br />
-            <Link to="/Kanbas/Dashboard" id="wd-inbox-link"
+                Calendar </Link><br />
+
+            <Link to="/Kanbas/Inbox" id="wd-inbox-link"
                 className="list-group-item text-white
                    bg-black text-center border-0">
                 <IoMailOpenOutline className="fs-1 text-danger" /><br />

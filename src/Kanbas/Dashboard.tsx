@@ -6,7 +6,7 @@ export default function Dashboard() {
         <div id="wd-dashboard" className="container-fluid">
             <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
             <h2 id="wd-dashboard-published">Published Courses (12)<hr /></h2>
-            <div id="wd-dashboard-courses" className="row justify-content-start">
+            <div id="wd-dashboard-courses" className="row justify-content-start" style={{maxWidth:"1200px"}}>
                 <div className="wd-dashboard-course col-12 col-md-12 col-lg-6 col-xl-4 col-xxl-3 mb-4">
                     <div className="card custom-card rounded-3 overflow-hidden">
                         <Link className="wd-dashboard-course-link text-decoration-none text-dark"

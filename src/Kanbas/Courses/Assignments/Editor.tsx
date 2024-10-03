@@ -14,7 +14,7 @@ export default function AssignmentEditor() {
                         </textarea>
                     </div>
                     <div className="row mb-3" id="wd-points">
-                        <div className="col-md-2 d-flex align-items-center jusity-content-end">
+                        <div className="col-md-2 d-flex align-items-center justify-content-end">
                             <label htmlFor="wd-points" className="form-label">Points</label>
                         </div>
                         <div className="col-md-10">
@@ -23,7 +23,7 @@ export default function AssignmentEditor() {
                     </div>
 
                     <div className="row mb-3" id="wd-group">
-                        <div className="col-md-2 d-flex align-items-center jusity-content-end">
+                        <div className="col-md-2 d-flex align-items-center justify-content-end">
                             <label htmlFor="wd-group" className="form-label">Assignment Group</label>
                         </div>
                         <div className="col-md-10">
@@ -33,7 +33,7 @@ export default function AssignmentEditor() {
                         </div>
                     </div>
                     <div className="row mb-3" id="wd-display-grade-as">
-                        <div className="col-md-2 d-flex align-items-center jusity-content-end">
+                        <div className="col-md-2 d-flex align-items-center justify-content-end">
                             <label htmlFor="wd-display-grade-as">Display grade as</label>
                         </div>
                         <div className="col-md-10">
@@ -44,12 +44,12 @@ export default function AssignmentEditor() {
                     </div>
 
                     <div className="row mb-3" id="wd-submission-type">
-                        <div className="col-md-2 d-flex align-items-start jusity-content-end">
+                        <div className="col-md-2 d-flex align-items-start justify-content-end">
                             <label htmlFor="wd-submission-type" className="form-label">Submission Type</label>
                         </div>
 
-                        <div className="p-3">
-                            <div className="border p-3 rounded mb-3 col-md-10" id="wd-submission-option">
+                        <div className="col-md-10 mb-3" style={{ padding: "0 0.75rem" }}>
+                            <div className="border p-3 rounded" id="wd-submission-option">
                                 <div className="mb-3">
                                     <div>
                                         <select id="wd-group" className="form-select">
@@ -81,32 +81,35 @@ export default function AssignmentEditor() {
                                     <label className="form-check-label" htmlFor="wd-file-upload">File Uploads</label>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                     </div>
 
                     <div className="row mb-3" id="wd-assign-to">
-                        <div className="col-md-2 d-flex align-items-start jusity-content-end">
+                        <div className="col-md-2 d-flex align-items-start justify-content-end">
                             <label id="wd-assign-to" className="form-label">Assign</label>
                         </div>
-                        <div className="border p-3 rounded mb-3 col-md-10" id="wd-assign-to-box">
-                            <label id="wd-assign-to" className="form-label"><b>Assign to</b></label>
-                            <div className="mb-3" id="wd-everyone">
-                                <input type="text" id="wd-assign-to" className="form-control" placeholder="Everyone" value="Everyone"></input>
-                            </div>
-                            <div className="row mb-3" id="wd-due">
-                                <div className="col">
-                                    <label id="wd-due-date" className="form-label"><b>Due</b></label>
-                                    <input id="wd-due-date" className="form-control" placeholder="YYYY-MM-DD" type="date" />
+                        <div className="col-md-10 mb-3" style={{ padding: "0 0.75rem" }}>
+
+                            <div className="border p-3 rounded" id="wd-assign-to-box">
+                                <label id="wd-assign-to" className="form-label"><b>Assign to</b></label>
+                                <div className="mb-3" id="wd-everyone">
+                                    <input type="text" id="wd-assign-to" className="form-control" placeholder="Everyone" value="Everyone"></input>
                                 </div>
-                            </div>
-                            <div className="row mb-3">
-                                <div className="col-md-6">
-                                    <label id="wd-available-from" className="form-label"><b>Available from</b></label>
-                                    <input id="wd-available-from" className="form-control" defaultValue="YYYY-MM-DD" type="date" />
+                                <div className="row mb-3" id="wd-due">
+                                    <div className="col">
+                                        <label id="wd-due-date" className="form-label"><b>Due</b></label>
+                                        <input id="wd-due-date" className="form-control" placeholder="YYYY-MM-DD" type="date" />
+                                    </div>
                                 </div>
-                                <div className="col-md-6">
-                                    <label id="wd-available-until" className="form-label"><b>Until</b></label>
-                                    <input id="wd-available-until" className="form-control" defaultValue="YYYY-MM-DD" type="date"></input>
+                                <div className="row mb-3">
+                                    <div className="col-md-6">
+                                        <label id="wd-available-from" className="form-label"><b>Available from</b></label>
+                                        <input id="wd-available-from" className="form-control" defaultValue="YYYY-MM-DD" type="date" />
+                                    </div>
+                                    <div className="col-md-6">
+                                        <label id="wd-available-until" className="form-label"><b>Until</b></label>
+                                        <input id="wd-available-until" className="form-control" defaultValue="YYYY-MM-DD" type="date"></input>
+                                    </div>
                                 </div>
                             </div>
                         </div>
