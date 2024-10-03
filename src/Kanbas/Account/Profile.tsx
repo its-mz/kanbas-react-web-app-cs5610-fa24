@@ -10,14 +10,8 @@ export default function Profile() {
             <input id="wd-lastname" value="" placeholder="Last Name" className="form-control mb-2"/>
             <input id="wd-dob" defaultValue="2000-01-01" type="date" className="form-control mb-2"/>
             <input id="wd-email" value="" placeholder="E-mail" type="email" className="form-control mb-2"/>
-            {/* <select id="wd-role">
-                <option value="USER">User</option>
-                <option value="ADMIN">Admin</option>
-                <option value="FACULTY">Faculty</option>
-                <option value="STUDENT">Student</option>
-            </select><br /> */}
             <input id="wd-email" value="" placeholder="User" type="email" className="form-control mb-2"/>
-            <Link to="/Kanbas/Account/Signin" className="btn btn-signout w-100">Sign out</Link>
+            <Link to="/Kanbas/Account/Signin" className="btn btn-danger form-control mb-2">Sign out</Link>
         </div>
     );
 }
