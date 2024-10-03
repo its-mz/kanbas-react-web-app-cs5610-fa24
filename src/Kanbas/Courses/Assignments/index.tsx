@@ -33,7 +33,7 @@ export default function Assignments() {
 
 
                         <ul className="wd-assignments list-group rounded-0">
-                            <li className="wd-assignments list-group-item p-3 ps-1">
+                            <li className="wd-assignments list-group-item p-3 ps-1" style={{ borderLeft: "5px solid green" }}>
                                 <div className="d-flex align-items-center">
                                     <div className="d-flex align-items-center"><BsGripVertical className="me-2 fs-3" /><MdOutlineAssignment className="me-2 fs-3 green-icon" />
                                     </div>
@@ -43,7 +43,7 @@ export default function Assignments() {
                                             <b>A1</b>
                                         </a>
                                         <div className="wd-assignment-ddl ms-2">
-                                            <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>Sep. 19 at 8:59pm <b>Due </b>Sep. 20 at 11:59pm | 100 pts
+                                            <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 6 at 11:59pm <b>Due </b>May 13 at 11:59pm | 100 pts
                                         </div>
                                     </div>
                                     <div className="float-end">
@@ -55,7 +55,7 @@ export default function Assignments() {
                                 </div>
                             </li>
 
-                            <li className="wd-assignments list-group-item p-3 ps-1">
+                            <li className="wd-assignments list-group-item p-3 ps-1" style={{ borderLeft: "5px solid green" }}>
                                 <div className="d-flex align-items-center">
                                     <div className="d-flex align-items-center"><BsGripVertical className="me-2 fs-3" /><MdOutlineAssignment className="me-2 fs-3 green-icon" />
                                     </div>
@@ -65,7 +65,7 @@ export default function Assignments() {
                                             <b>A2</b>
                                         </a>
                                         <div className="wd-assignment-ddl ms-2">
-                                            <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>Sep. 19 at 8:59pm <b>Due </b>Sep. 20 at 11:59pm | 100 pts
+                                            <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 13 at 11:59pm <b>Due </b>May 20 at 11:59pm | 100 pts
                                         </div>
                                     </div>
                                     <div className="float-end">
@@ -76,7 +76,7 @@ export default function Assignments() {
                                     </div>
                                 </div>
                             </li>
-                            <li className="wd-assignments list-group-item p-3 ps-1">
+                            <li className="wd-assignments list-group-item p-3 ps-1" style={{ borderLeft: "5px solid green" }}>
                                 <div className="d-flex align-items-center">
                                     <div className="d-flex align-items-center"><BsGripVertical className="me-2 fs-3" /><MdOutlineAssignment className="me-2 fs-3 green-icon" />
                                     </div>
@@ -86,7 +86,7 @@ export default function Assignments() {
                                             <b>A3</b>
                                         </a>
                                         <div className="wd-assignment-ddl ms-2">
-                                            <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>Sep. 19 at 8:59pm <b>Due </b>Sep. 20 at 11:59pm | 100 pts
+                                            <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 20 at 11:59pm <b>Due </b>May 27 at 11:59pm | 100 pts
                                         </div>
                                     </div>
                                     <div className="float-end">
