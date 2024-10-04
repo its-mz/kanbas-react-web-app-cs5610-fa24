@@ -12,7 +12,7 @@ export default function Assignments() {
                 <div id="wd-assignment-control" className="d-flex justify-content-between align-items-center mb-3">
                     <div className="input-group input-group-lg border border-1 rounded-1" style={{ maxWidth: "300px" }}>
                         <span className="input-group-text bg-white border-0"><FaSearch /></span>
-                        <input id="wd-search-assignment" type="text" placeholder="Search for Assignments" className="form-contro form-control-lg border-0" />
+                        <input id="wd-search-assignment" type="text" placeholder="Search for Assignments" className="form-control form-control-lg border-0" />
                     </div>
 
                     <div>
