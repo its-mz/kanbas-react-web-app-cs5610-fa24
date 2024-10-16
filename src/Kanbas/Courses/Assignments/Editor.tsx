@@ -1,11 +1,18 @@
+import { useParams } from "react-router";
+import * as db from "../../Database";
+import { assignments } from "../../Database";
+
 export default function AssignmentEditor() {
+    const { cid, aid } = useParams();
+    const assignment = db.assignments.find(a => a._id === aid && a.course === cid);
     return (
         <div className="flex-fill">
             <div id="wd-assignments-editor" className="container mt-5">
                 <form>
                     <div className="mb-3" id="wd-name">
                         <label htmlFor="wd-name">Assignment Name</label>
-                        <input id="wd-name" className="form-control" value="A1 - ENV + HTML" /><br />
+                        <><input id="wd-name" className="form-control" value={`${assignment && assignment.title}`} /><br /></>
+                        
                     </div>
 
                     <div className="mb-3" id="wd-description">
