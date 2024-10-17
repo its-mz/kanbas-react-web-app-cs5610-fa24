@@ -1,10 +1,11 @@
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import * as db from "../../Database";
 import { assignments } from "../../Database";
 
 export default function AssignmentEditor() {
     const { cid, aid } = useParams();
     const assignment = db.assignments.find(a => a._id === aid && a.course === cid);
+    const navigate = useNavigate();
     return (
         <div className="flex-fill">
             <div id="wd-assignments-editor" className="container mt-5">
@@ -12,7 +13,7 @@ export default function AssignmentEditor() {
                     <div className="mb-3" id="wd-name">
                         <label htmlFor="wd-name">Assignment Name</label>
                         <><input id="wd-name" className="form-control" value={`${assignment && assignment.title}`} /><br /></>
-                        
+
                     </div>
 
                     <div className="mb-3" id="wd-description">
@@ -123,8 +124,8 @@ export default function AssignmentEditor() {
                     </div>
                     <hr />
                     <div className="d-flex justify-content-end">
-                        <button type="button" className="btn btn-secondary me-2" style={{ width: "100px" }}>Cancel</button>
-                        <button type="button" className="btn btn-danger" style={{ width: "100px" }}>Save</button>
+                        <button type="button" className="btn btn-secondary me-2" onClick={() => navigate(`/Kanbas/Courses/${cid}/Assignments`)} style={{ width: "100px" }}>Cancel</button>
+                        <button type="button" className="btn btn-danger" onClick={() => navigate(`/Kanbas/Courses/${cid}/Assignments`)} style={{ width: "100px" }}>Save</button>
                     </div>
                     <tr>
                         <td colSpan={10}><hr /></td>
