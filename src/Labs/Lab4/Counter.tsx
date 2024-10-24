@@ -1,0 +1,25 @@
+import React, { useState } from "react";
+export default function Counter() {
+let [count, setCount] = useState(7);
+    console.log(count);
+    return (
+        <div id="wd-counter-use-state">
+            <h2>Counter: {count}</h2>
+            <button
+                onClick={() => {
+                    setCount(count + 1);
+                    console.log(count);
+                }}
+                id="wd-counter-up-click" type="button" className="btn btn-secondary me-2" style={{ backgroundColor: 'green', color: "white"}}>
+                Up
+            </button>
+            <button
+                onClick={() => {
+                    setCount(count - 1);
+                    console.log(count);
+                }}
+                id="wd-counter-down-click" type="button" className="btn btn-danger">
+                Down
+            </button>
+            <hr /></div>);
+}
