@@ -10,7 +10,7 @@ let [count, setCount] = useState(7);
                     setCount(count + 1);
                     console.log(count);
                 }}
-                id="wd-counter-up-click" type="button" className="btn btn-secondary me-2" style={{ backgroundColor: 'green', color: "white"}}>
+                id="wd-counter-up-click" type="button" className="btn btn-success me-2" >
                 Up
             </button>
             <button
