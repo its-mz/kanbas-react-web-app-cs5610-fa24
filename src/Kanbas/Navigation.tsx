@@ -42,34 +42,6 @@ export default function KanbasNavigation() {
                     {link.label}
                 </Link>
             ))}
-
-            {/* <Link to="/Kanbas/Dashboard" id="wd-dashboard-link"
-                className="list-group-item text-center border-0
-                   bg-white text-danger">
-                <AiOutlineDashboard className="fs-1 text-danger" /><br />
-                Dashboard </Link><br />
-            <Link to="/Kanbas/Dashboard" id="wd-course-link"
-                className="list-group-item text-white
-                   bg-black text-center border-0">
-                <LiaBookSolid className="fs-1 text-danger" /><br />
-                Courses </Link><br />
-
-            <Link to="/Kanbas/Calendar" id="wd-calendar-link"
-                className="list-group-item text-white
-                   bg-black text-center border-0">
-                <IoIosCalendar className="fs-1 text-danger" /><br />
-                Calendar </Link><br />
-
-            <Link to="/Kanbas/Inbox" id="wd-inbox-link"
-                className="list-group-item text-white
-                   bg-black text-center border-0">
-                <IoMailOpenOutline className="fs-1 text-danger" /><br />
-                Inbox </Link><br />
-            <Link to="/Labs/TOC" id="wd-labs-link"
-                className="list-group-item text-white
-                   bg-black text-center border-0">
-                <GiGearHammer className="fs-1 text-danger" /><br />
-                Labs </Link><br /> */}
         </div>
     );
 }
