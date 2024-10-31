@@ -34,9 +34,9 @@ export default function Modules() {
                                 <input className="form-control w-50 d-inline-block"
                                     onChange={(e) => dispatch(updateModule({ ...module, name: e.target.value }))}
                                     onKeyDown={(e) => {
-                                        // if (e.key === "Enter") {
-                                        //     dispatch(updateModule({ ...module, editing: false }));
-                                        // }
+                                        if (e.key === "Enter") {
+                                            dispatch(updateModule({ ...module, editing: false }));
+                                        }
                                     }}
                                     defaultValue={module.name} />
                             )}
