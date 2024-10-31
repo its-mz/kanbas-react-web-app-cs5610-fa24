@@ -1,18 +1,36 @@
 import { useParams, useNavigate } from "react-router";
 import * as db from "../../Database";
 import { assignments } from "../../Database";
+import { useSelector } from "react-redux";
+import { useState } from "react";
 
 export default function AssignmentEditor() {
     const { cid, aid } = useParams();
-    const assignment = db.assignments.find(a => a._id === aid && a.course === cid);
+    // const assignment = db.assignments.find(a => a._id === aid && a.course === cid);
     const navigate = useNavigate();
+    const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+    const flag = assignments.find((assignment: any) => assignment._id === aid) ? 1 : 0;
+    const [assignment, setAssignment] = useState<any>(
+        flag ? assignments.find((assignment: any) => assignment._id === aid) : {
+            course: cid,
+            title: "New Assignment Title",
+            description: "New Assignment Description",
+            points: "100",
+            dueDate: "",
+            fromDate: "",
+            untilDate: "",
+        }
+    )
+
+
     return (
         <div className="flex-fill">
             <div id="wd-assignments-editor" className="container mt-5">
                 <form>
                     <div className="mb-3" id="wd-name">
                         <label htmlFor="wd-name">Assignment Name</label>
-                        <><input id="wd-name" className="form-control" value={`${assignment && assignment.title}`} /><br /></>
+                        <><input id="wd-name" className="form-control" value={`${assignment && assignment.title}`} />
+                            <br /></>
 
                     </div>
 

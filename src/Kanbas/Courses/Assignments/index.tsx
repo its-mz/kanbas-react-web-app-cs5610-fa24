@@ -4,13 +4,14 @@ import { FiPlus } from "react-icons/fi";
 import { IoEllipsisVertical } from "react-icons/io5";
 import { MdOutlineAssignment } from "react-icons/md";
 import { GoTriangleDown } from "react-icons/go";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import * as db from "../../Database";
 import { Link } from "react-router-dom";
 
 export default function Assignments() {
     const { cid } = useParams();
     const { assignments } = db;
+    const navigate = useNavigate();
     return (
         <div id="wd-assignments">
             <div>
@@ -22,7 +23,7 @@ export default function Assignments() {
 
                     <div>
                         <button id="wd-add-assignment-group" className="btn btn-lg btn-secondary me-1 rounded-1">+ Group</button>
-                        <button id="wd-add-assignment" className="btn btn-lg btn-danger rounded-1">+ Assignment</button>
+                        <button id="wd-add-assignment" className="btn btn-lg btn-danger rounded-1" onClick={() => navigate(`./createAssigments`)}>+ Assignment</button>
                     </div>
                 </div>
             </div>
@@ -51,10 +52,10 @@ export default function Assignments() {
                                                 <b>{assignments.title}</b>
                                             </Link>
                                             {/* {assignments.lessons && ( */}
-                                                <div className="wd-assignment-ddl ms-2">
-                                                    <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 6 at 11:59pm <b>Due </b>May 13 at 11:59pm | 100 pts
-                                                </div>
-                                            
+                                            <div className="wd-assignment-ddl ms-2">
+                                                <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 6 at 11:59pm <b>Due </b>May 13 at 11:59pm | 100 pts
+                                            </div>
+
                                         </div>
                                         <div className="d-flex align-items-center float-end">
                                             <span className="d-flex align-items-center"><FaCheckCircle
