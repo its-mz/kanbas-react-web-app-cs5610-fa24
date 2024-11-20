@@ -6,9 +6,10 @@ import Courses from "./Courses";
 import "./styles.css";
 import { useState } from "react";
 import * as db from "./Database";
-import { Provider } from "react-redux";
-import store from "./store";
+// import { Provider } from "react-redux";
+// import store from "./store";
 import ProtectedRoute from "./Account/ProtectedRoute";
+import Session from "./Account/Session";
 
 export default function Kanbas() {
   const [courses, setCourses] = useState<any[]>(db.courses);
@@ -36,7 +37,8 @@ export default function Kanbas() {
 
   return (
     <>
-      <Provider store={store}>
+      {/* <Provider store={store}> */}
+      <Session>
         <div id="wd-kanbas">
           <KanbasNavigation />
           <div className="wd-main-content-offset p-3">
@@ -45,8 +47,6 @@ export default function Kanbas() {
               <Route path="/Account/*" element={<Account />} />
               <Route path="Dashboard" element={
                 <ProtectedRoute>
-
-
                   <Dashboard
                     courses={courses}
                     course={course}
@@ -61,9 +61,9 @@ export default function Kanbas() {
               <Route path="/Inbox" element={<h1>Inbox</h1>} />
             </Routes>
           </div>
-
         </div>
-      </Provider>
+      </Session>
+      {/* </Provider> */}
     </>
   );
 }

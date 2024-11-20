@@ -5,7 +5,7 @@ import Labs from './Labs';
 import Kanbas from './Kanbas';
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Provider } from 'react-redux';
-import store from './Labs/store';
+import store from './Kanbas/store';
 
 function App() {
   return (
