@@ -1,13 +1,31 @@
 import { Link } from "react-router-dom";
 import './styles.css';
 import { useDispatch, useSelector } from "react-redux";
-import * as db from "./Database";
+//import * as db from "./Database";
 import { addEnrollment, deleteEnrollment } from "./reducer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import * as enrollmentsClient from "./Enrollments/client";
+import * as coursesClient from "./Courses/client";
 
-export default function Dashboard({ courses, course, setCourse, addNewCourse, deleteCourse, updateCourse }: {
-    courses: any[]; course: any; setCourse: (course: any) => void;
-    addNewCourse: (_id: string) => void; deleteCourse: (course: any) => void;
+const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
+const ENROLLMENTS_API = `${REMOTE_SERVER}/api/enrollments`;
+
+export default function Dashboard({
+    courses,
+    course,
+    setCourse,
+    //setCourses,
+    addNewCourse,
+    deleteCourse,
+    updateCourse
+}: {
+    courses: any[];
+    course: any;
+    setCourse: (course: any) => void;
+    //setCourses: (course: any) => void;
+    addNewCourse: (_id: string) => void;
+    deleteCourse: (course: any) => void;
     updateCourse: () => void;
 }) {
     const { currentUser } = useSelector((state: any) => state.accountReducer);
@@ -21,6 +39,41 @@ export default function Dashboard({ courses, course, setCourse, addNewCourse, de
             enrollment.user === currentUser._id && enrollment.course === courseID
         );
 
+    type Course = {
+        _id: string;
+        name: string;
+        description: string;
+        image: string;
+    };
+    const [allCourses, setAllCourses] = useState<Course[]>([]);
+    type Enrollment = {
+        _id: string;
+        user: string;
+        course: string;
+    };
+    const [allEnrollments, setAllEnrollments] = useState<Enrollment[]>([]);
+    useEffect(() => {
+        const fetchAllCourses = async () => {
+            const courses = await coursesClient.fetchAllCourses();
+            setAllCourses(courses);
+        };
+        const fetchEnrollments = async () => {
+            const { data } = await axios.get(`${ENROLLMENTS_API}`);
+            const enrollments = data;
+            setAllEnrollments(enrollments);
+        };
+        fetchAllCourses();
+        fetchEnrollments();
+    }, [allCourses, allEnrollments]);
+
+    const enrollCourse = async (courseId: any) => {
+        await enrollmentsClient.enrollToCourse(courseId);
+        console.log(`Enrolled in ${courseId}`);
+    };
+
+    const unenrollCourse = async (courseId: any) => {
+        await enrollmentsClient.unenrollFromCourse(courseId);
+    };
 
     return (
         <div id="wd-dashboard" className="container-fluid">
@@ -94,7 +147,7 @@ export default function Dashboard({ courses, course, setCourse, addNewCourse, de
                     Enrolled Courses
                     <hr />
                 </h2>
-            )}
+            )}{" "}
             <div id="wd-dashboard-courses" className="row">
                 <div className="row row-cols-1 row-cols-md-5 g-4">
                     {currentUser.role === "FACULTY"
@@ -160,13 +213,13 @@ export default function Dashboard({ courses, course, setCourse, addNewCourse, de
                         !showEnroll
                             ?
                             courses
-                                .filter((course) =>
-                                    enrollments.some(
-                                        (enrollment: any) =>
-                                            enrollment.user === currentUser._id &&
-                                            enrollment.course === course._id
-                                    )
-                                )
+                                // .filter((course) =>
+                                //     enrollments.some(
+                                //         (enrollment: any) =>
+                                //             enrollment.user === currentUser._id &&
+                                //             enrollment.course === course._id
+                                //     )
+                                // )
                                 .map((course) => (
                                     <div
                                         className="wd-dashboard-course col"
@@ -242,14 +295,25 @@ export default function Dashboard({ courses, course, setCourse, addNewCourse, de
                                                 <button
                                                     className="btn btn-danger float-end me-2 mb-2"
                                                     id="wd-unenroll-course-click"
-                                                    onClick={() =>
+                                                    onClick={() => {
+                                                        // enrollmentsClient.unenrollFromCourse(course._id);
+                                                        if (!course || !course._id) {
+                                                            console.error(
+                                                                "Course is undefined or does not have an _id"
+                                                            );
+                                                            return;
+                                                        }
+                                                        unenrollCourse(course._id);
                                                         dispatch(
                                                             deleteEnrollment({
                                                                 user: currentUser._id,
                                                                 course: course._id,
                                                             })
                                                         )
-                                                    }
+                                                        setCourse(
+                                                            courses.filter((c) => c._id !== course._id)
+                                                        );
+                                                    }}
                                                 >
                                                     Unenroll
                                                 </button>
@@ -257,14 +321,25 @@ export default function Dashboard({ courses, course, setCourse, addNewCourse, de
                                                 <button
                                                     className="btn btn-success float-end me-2 mb-2"
                                                     id="wd-enroll-course-click"
-                                                    onClick={() =>
+                                                    onClick={() => {
+                                                        // enrollmentsClient.enrollToCourse(course._id);
+                                                        if (!course || !course._id) {
+                                                            console.error(
+                                                                "Course is undefined or does not have an _id"
+                                                            );
+                                                            return;
+                                                        }
+                                                        enrollCourse(course._id);
                                                         dispatch(
                                                             addEnrollment({
                                                                 user: currentUser._id,
                                                                 course: course._id,
                                                             })
                                                         )
-                                                    }
+                                                        if (!courses.find((c) => c._id === course._id)) {
+                                                            setCourse([...courses, course]);
+                                                        }
+                                                    }}
                                                 >
                                                     Enroll
                                                 </button>

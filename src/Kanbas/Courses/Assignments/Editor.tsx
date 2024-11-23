@@ -3,10 +3,12 @@ import * as db from "../../Database";
 import { assignments } from "../../Database";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { addAssignment, updateAssignment } from "./reducer";
+import { addAssignment, updateAssignment, setAssignments } from "./reducer";
+import * as coursesClient from "../client";
+import * as assignmentsClient from "./client";
 
 export default function AssignmentEditor() {
-    const { cid, aid } = useParams();
+    const { cid, aid, } = useParams();
     // const assignment = db.assignments.find(a => a._id === aid && a.course === cid);
     const { currentUser } = useSelector((state: any) => state.accountReducer);
     const navigate = useNavigate();
@@ -24,8 +26,10 @@ export default function AssignmentEditor() {
             untilDate: "",
         }
     )
-    const saveAssignment = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const saveAssignment = async (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
+
+        if (!cid) return;
 
         if (Object.values(assignment).some((attribute: any) => attribute === "")) {
             alert("All fields must be filled out.");
@@ -33,8 +37,10 @@ export default function AssignmentEditor() {
         }
 
         if (flag) {
+            await assignmentsClient.updateAssignment(assignment);
             dispatch(updateAssignment(assignment));
         } else {
+            const newAssignment = await coursesClient.createAssignmentForCourse(cid, assignment);
             dispatch(addAssignment(assignment));
         }
         navigate(-1);

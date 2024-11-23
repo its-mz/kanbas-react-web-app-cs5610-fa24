@@ -9,10 +9,12 @@ import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import AssignmentControls from "./AssignmentControls";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AssignmentsControlButtons from "./AssignmentControlButtons";
 import { format } from "date-fns";
-import { deleteAssignment } from "./reducer";
+import { addAssignment, deleteAssignment, setAssignments } from "./reducer";
+import * as coursesClient from "../client";
+import * as assignmentClient from "./client";
 
 export default function Assignments() {
     const { cid } = useParams();
@@ -29,8 +31,9 @@ export default function Assignments() {
         setAssignmentToDelete(id);
     };
 
-    const confirmDelete = () => {
+    const confirmDelete = async (assignmentId: string) => {
         if (assignmentToDelete) {
+            await assignmentClient.deleteAssignment(assignmentId);
             dispatch(deleteAssignment(assignmentToDelete));
             setAssignmentToDelete(null);
         }
@@ -39,6 +42,19 @@ export default function Assignments() {
     const cancelDelete = () => {
         setAssignmentToDelete(null);
     };
+
+    // const removeAssignment = async (assignmentId: string) => {
+    //     await assignmentClient.deleteAssignment(assignmentId);
+    //     dispatch(deleteAssignment(assignmentId));
+    // };
+
+    const fetchAssignments = async () => {
+        const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
+        dispatch(setAssignments(assignments));
+    };
+    useEffect(() => {
+        fetchAssignments();
+    }, []);
 
     return (
         <div id="wd-assignments" className="container-fluid">
@@ -71,7 +87,7 @@ export default function Assignments() {
 
 
                         <ul className="wd-assignments list-group rounded-0">
-                            {assignments.filter((assignments: any) => assignments.course === cid).map((assignments: any) => (
+                            {assignments.map((assignments: any) => (
                                 <li className="wd-assignments list-group-item p-3 ps-1" style={{ borderLeft: "5px solid green" }}>
                                     <div className="d-flex align-items-center">
                                         <div className="d-flex align-items-center"><BsGripVertical className="me-2 fs-3" /><MdOutlineAssignment className="me-2 fs-3 green-icon" />
@@ -118,7 +134,7 @@ export default function Assignments() {
                                                                 Are you sure you want to remove this assignment?
                                                             </p>
                                                             <button
-                                                                onClick={confirmDelete}
+                                                                onClick={() => confirmDelete(assignments._id)}
                                                                 className="btn btn-danger me-2"
                                                             >
                                                                 Yes

@@ -49,3 +49,20 @@ export const signout = async () => {
   );
   return response.data;
 };
+
+//find courses for enrooled user end point
+export const findMyCourses = async () => {
+  const { data } = await axiosWithCredentials.get(
+    `${USERS_API}/current/courses`
+  );
+  return data;
+};
+
+//create new courses
+export const createCourse = async (course: any) => {
+  const { data } = await axiosWithCredentials.post(
+    `${USERS_API}/current/courses`,
+    course
+  );
+  return data;
+};
