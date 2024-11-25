@@ -15,7 +15,7 @@ export default function Dashboard({
     courses,
     course,
     setCourse,
-    //setCourses,
+    setCourses,
     addNewCourse,
     deleteCourse,
     updateCourse
@@ -23,7 +23,7 @@ export default function Dashboard({
     courses: any[];
     course: any;
     setCourse: (course: any) => void;
-    //setCourses: (course: any) => void;
+    setCourses: (course: any) => void;
     addNewCourse: (_id: string) => void;
     deleteCourse: (course: any) => void;
     updateCourse: () => void;
@@ -52,6 +52,7 @@ export default function Dashboard({
         course: string;
     };
     const [allEnrollments, setAllEnrollments] = useState<Enrollment[]>([]);
+
     useEffect(() => {
         const fetchAllCourses = async () => {
             const courses = await coursesClient.fetchAllCourses();
@@ -132,19 +133,19 @@ export default function Dashboard({
             )}
             {showEnroll ? (
                 <h2 id="wd-dashboard-published">
-                    Published Courses ({courses.length})
+                    Published Courses ({allCourses.length})
                     <hr />
                 </h2>
             ) : currentUser.role === "FACULTY" ? (
                 <>
                     <h2 id="wd-dashboard-published">
-                        Published Courses ({courses.length})
+                        Published Courses ({allCourses.length})
                         <hr />
                     </h2>
                 </>
             ) : (
                 <h2 id="wd-dashboard-enrolled">
-                    Enrolled Courses
+                    Enrolled Courses ({courses.length})
                     <hr />
                 </h2>
             )}{" "}
@@ -249,7 +250,7 @@ export default function Dashboard({
                                     </div>
                                 ))
                             :
-                            courses.map((course) => (
+                            allCourses.map((course) => (
                                 <div
                                     className="wd-dashboard-course col"
                                     style={{ width: "300px" }}
@@ -310,7 +311,7 @@ export default function Dashboard({
                                                                 course: course._id,
                                                             })
                                                         )
-                                                        setCourse(
+                                                        setCourses(
                                                             courses.filter((c) => c._id !== course._id)
                                                         );
                                                     }}
@@ -337,7 +338,7 @@ export default function Dashboard({
                                                             })
                                                         )
                                                         if (!courses.find((c) => c._id === course._id)) {
-                                                            setCourse([...courses, course]);
+                                                            setCourses([...courses, course]);
                                                         }
                                                     }}
                                                 >
