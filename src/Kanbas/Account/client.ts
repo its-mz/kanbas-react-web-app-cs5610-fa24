@@ -66,3 +66,49 @@ export const createCourse = async (course: any) => {
   );
   return data;
 };
+
+//find all users
+export const findAllUsers = async () => {
+  const response = await axiosWithCredentials.get(
+    USERS_API
+  );
+  return response.data;
+};
+
+//find user by role
+export const findUsersByRole = async (role: string) => {
+  const response = await axios.get(
+    `${USERS_API}?role=${role}`
+  );
+  return response.data;
+};
+
+//find user by partial name
+export const findUsersByPartialName = async (
+  name: string
+) => {
+  const response = await axios.get(
+    `${USERS_API}?name=${name}`
+  );
+  return response.data;
+};
+
+//find user by id
+export const findUserById = async (id: string) => {
+  const response = await axios.get(`${USERS_API}/${id}`);
+  return response.data;
+};
+
+//delete user
+export const deleteUser = async (userId: string) => {
+  const response = await axios.delete(
+    `${USERS_API}/${userId}`
+  );
+  return response.data;
+};
+
+//create user
+export const createUser = async (user: any) => {
+  const response = await axios.post(`${USERS_API}`, user);
+  return response.data;
+};
