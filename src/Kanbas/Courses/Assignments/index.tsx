@@ -5,7 +5,6 @@ import { IoEllipsisVertical } from "react-icons/io5";
 import { MdOutlineAssignment } from "react-icons/md";
 import { GoTriangleDown } from "react-icons/go";
 import { useNavigate, useParams } from "react-router";
-// import * as db from "../../Database";
 import { Link } from "react-router-dom";
 import AssignmentControls from "./AssignmentControls";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +17,6 @@ import * as assignmentClient from "./client";
 
 export default function Assignments() {
     const { cid } = useParams();
-    // const { assignments } = db;
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { currentUser } = useSelector((state: any) => state.accountReducer);
@@ -42,12 +40,6 @@ export default function Assignments() {
     const cancelDelete = () => {
         setAssignmentToDelete(null);
     };
-
-    // const removeAssignment = async (assignmentId: string) => {
-    //     await assignmentClient.deleteAssignment(assignmentId);
-    //     dispatch(deleteAssignment(assignmentId));
-    // };
-
     const fetchAssignments = async () => {
         const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
         dispatch(setAssignments(assignments));
@@ -82,27 +74,28 @@ export default function Assignments() {
                             <span id="wd-assignments-percentage" className="border border-1 rounded-pill px-3 py-1 me-2 ms-auto">40% of Total
                             </span>
                             <AssignmentsControlButtons />
-                            {/* <FiPlus /><IoEllipsisVertical className="fs-4" /> */}
                         </div>
 
 
                         <ul className="wd-assignments list-group rounded-0">
                             {assignments.map((assignments: any) => (
-                                <li className="wd-assignments list-group-item p-3 ps-1" style={{ borderLeft: "5px solid green" }}>
+                                <li className="wd-assignments list-group-item p-3 ps-1" style={{ borderLeft: "5px solid green" }} key={assignments._id}>
                                     <div className="d-flex align-items-center">
                                         <div className="d-flex align-items-center"><BsGripVertical className="me-2 fs-3" /><MdOutlineAssignment className="me-2 fs-3 green-icon" />
                                         </div>
                                         <div className="flex-grow-1">
-                                            <Link
+                                            {/* <Link
                                                 to={`/Kanbas/Courses/${cid}/Assignments/${assignments._id}`}
                                                 className="wd-assignment-link text-dark no-underline ms-2"
                                             >
                                                 <b>{assignments.title}</b>
-                                            </Link>
-                                            {/* {assignments.lessons && ( */}
-                                            {/* <div className="wd-assignment-ddl ms-2">
-                                                <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 6 at 11:59pm <b>Due </b>May 13 at 11:59pm | 100 pts
-                                            </div> */}
+                                            </Link> */}
+                                            <a
+                                                className="wd-assignment-link text-dark"
+                                                href={`#/Kanbas/Courses/${cid}/Assignments/${assignments._id}`}
+                                            >
+                                                <b>{assignments.title}</b>
+                                            </a>
                                             <div className="text-muted mt-1">
                                                 <span style={{ color: "red" }}>Multiple Modules</span>{" "}
                                                 | <b>Not available until</b>{" "}
@@ -157,75 +150,10 @@ export default function Assignments() {
                                 </li>
                             ))}
                         </ul>
-                        {/* <li className="wd-assignments list-group-item p-3 ps-1" style={{ borderLeft: "5px solid green" }}>
-                                <div className="d-flex align-items-center">
-                                    <div className="d-flex align-items-center"><BsGripVertical className="me-2 fs-3" /><MdOutlineAssignment className="me-2 fs-3 green-icon" />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <a className="wd-assignment-link text-dark no-underline ms-2"
-                                            href="#/Kanbas/Courses/1234/Assignments/123">
-                                            <b>A1</b>
-                                        </a>
-                                        <div className="wd-assignment-ddl ms-2">
-                                            <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 6 at 11:59pm <b>Due </b>May 13 at 11:59pm | 100 pts
-                                        </div>
-                                    </div>
-                                    <div className="d-flex align-items-center float-end">
-                                        <span className="d-flex align-items-center"><FaCheckCircle
-                                            className="text-success fs-4" />
-                                            <FaCircle className="text-white me-1 fs-6" />
-                                            <IoEllipsisVertical className="fs-4" /></span>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li className="wd-assignments list-group-item p-3 ps-1" style={{ borderLeft: "5px solid green" }}>
-                                <div className="d-flex align-items-center">
-                                    <div className="d-flex align-items-center"><BsGripVertical className="me-2 fs-3" /><MdOutlineAssignment className="me-2 fs-3 green-icon" />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <a className="wd-assignment-link text-dark no-underline ms-2"
-                                            href="#/Kanbas/Courses/1234/Assignments/123">
-                                            <b>A2</b>
-                                        </a>
-                                        <div className="wd-assignment-ddl ms-2">
-                                            <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 13 at 11:59pm <b>Due </b>May 20 at 11:59pm | 100 pts
-                                        </div>
-                                    </div>
-                                    <div className="d-flex align-items-center float-end">
-                                        <span className="d-flex align-items-center"><FaCheckCircle
-                                            className="text-success fs-4" />
-                                            <FaCircle className="text-white me-1 fs-6" />
-                                            <IoEllipsisVertical className="fs-4" /></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li className="wd-assignments list-group-item p-3 ps-1" style={{ borderLeft: "5px solid green" }}>
-                                <div className="d-flex align-items-center">
-                                    <div className="d-flex align-items-center"><BsGripVertical className="me-2 fs-3" /><MdOutlineAssignment className="me-2 fs-3 green-icon" />
-                                    </div>
-                                    <div className="flex-grow-1">
-                                        <a className="wd-assignment-link text-dark no-underline ms-2"
-                                            href="#/Kanbas/Courses/1234/Assignments/123">
-                                            <b>A3</b>
-                                        </a>
-                                        <div className="wd-assignment-ddl ms-2">
-                                            <span style={{ color: "red" }}>Multiple Modules</span>  |  <b>Not available until </b>May 20 at 11:59pm <b>Due </b>May 27 at 11:59pm | 100 pts
-                                        </div>
-                                    </div>
-                                    <div className="d-flex align-items-center float-end">
-                                        <span className="d-flex align-items-center"><FaCheckCircle
-                                            className="text-success fs-4" />
-                                            <FaCircle className="text-white me-1 fs-6" />
-                                            <IoEllipsisVertical className="fs-4" /></span>
-                                    </div>
-                                </div>
-                            </li> */}
                     </li>
                 </ul>
-                {/* </li>
-        </ul> */}
             </div >
         </div >
     );
 }
+

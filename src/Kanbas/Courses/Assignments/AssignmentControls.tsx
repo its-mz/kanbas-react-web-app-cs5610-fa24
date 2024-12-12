@@ -25,8 +25,10 @@ export default function AssignmentControls({
             </div>
             {currentUser.role === "FACULTY" ? (
                 <div>
-                    <button id="wd-add-assignment-group" className="btn btn-lg btn-secondary me-1 rounded-1">+ Group</button>
-                    <button id="wd-add-assignment" className="btn btn-lg btn-danger rounded-1" onClick={() => navigate(`./createAssigments`)}>+ Assignment</button>
+                    <button id="wd-add-assignment-group"
+                        className="btn btn-lg btn-secondary me-1 rounded-1">+ Group</button>
+                    <button id="wd-add-assignment"
+                        className="btn btn-lg btn-danger rounded-1" onClick={() => navigate(`./createAssigments`)}>+ Assignment</button>
                 </div>
             ) : (
                 ""
