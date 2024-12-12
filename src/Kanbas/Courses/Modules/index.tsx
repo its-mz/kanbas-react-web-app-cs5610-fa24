@@ -9,13 +9,16 @@ import { setModules, addModule, editModule, updateModule, deleteModule }
 import { useSelector, useDispatch } from "react-redux";
 import * as coursesClient from "../client";
 import * as modulesClient from "./client";
+import axios from "axios";
 
 export default function Modules() {
     const { cid } = useParams();
     const [moduleName, setModuleName] = useState("");
     const { modules } = useSelector((state: any) => state.modulesReducer);
     const dispatch = useDispatch();
+    const axiosWithCredentials = axios.create({ withCredentials: true });
 
+    //fetch modules
     const fetchModules = async () => {
         const modules = await coursesClient.findModulesForCourse(cid as string);
         dispatch(setModules(modules));

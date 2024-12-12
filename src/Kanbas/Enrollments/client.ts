@@ -8,7 +8,10 @@ export const REMOTE_SERVER =
 export const USERS_API = `${REMOTE_SERVER}/api/users`;
 
 //enroll course
-export const enrollToCourse = async (courseId: any) => {
+export const enrollToCourse = async (
+  userId: string,
+  courseId: any
+) => {
   const { data } = await axiosWithCredentials.post(
     `${USERS_API}/current/courses/enroll`,
     { courseId }
@@ -17,7 +20,10 @@ export const enrollToCourse = async (courseId: any) => {
 };
 
 //unenroll course
-export const unenrollFromCourse = async (courseId: any) => {
+export const unenrollFromCourse = async (
+  userId: string,
+  courseId: any
+) => {
   const { data } = await axiosWithCredentials.delete(
     `${USERS_API}/current/courses/unenroll/${courseId}`
   );
